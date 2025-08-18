@@ -39,5 +39,4 @@ The program demonstrates **Object-Oriented Programming (OOP)** concepts like cla
 
 ---
 
-## 📌 Example Run
 
