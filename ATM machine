@@ -1,0 +1,114 @@
+import java.util.Scanner;
+class Informations
+{
+  private:
+    String Name;
+    int password;
+    int balance;
+  public:
+    int Accountnumber;
+    int deposit;
+    int witdrawl;
+    Informations(String Name,int Accountnumber,int password,int balance)
+    {
+      this.Name=Name;
+      this.Accountnumber=Accountnumber;
+      this.password=password;
+      this.balance=balance;
+    }
+    void Deposit()
+    {
+      int deposit;
+      Scanner ew=new Scanner(System.in);
+      System.out.println('Enter the amount to deposit:");
+      deposit=ew.nextInt();
+      balance+=depoist;
+    }
+    void Withdrawl()
+    {  
+      int withdrawl;
+      Scanner re=new Scanner(System.in);
+      System.out.print("Enter the amount to withdrawl:");
+      withdrawl=re.nextInt();
+      if(withdrawl>balance)
+      {
+          System.out.println("Insufficient Fund");
+          return;
+      }
+      balance-=withdrawl;
+    }
+    void Display()
+    {
+      System.out.println("Name:"+Name);
+      System.out.println("The Account Number:"+Accountnumber);
+      System.out.println("The Balance:"+balance);
+    }
+}
+class ATM
+{
+  public static void main(String[] args)
+  {
+    Scanner sc=new Scanner(System.in);
+    String Name;
+    int Acc_no;
+    int password;
+    int balance;
+    int n;
+    System.out.print("Enter the number of the Objects:");
+    Informations[] I=new Informations[n];
+    for(int i=0;i<n;i++)
+    {
+      System.out.print("Enter the Name:");
+      Name=sc.nextLine();
+      System.out.print("Enter the Account Number:");
+      Acc_no=sc.nextInt();
+      System.out.print("Enter the Password:");
+      password=sc.nextInt();
+      System.out.println("Enter the Balance:");
+      balance=sc.nextInt();
+      Informations[i] I=new Informations(Name,Acc_no,password,balance);
+    }
+    int i=1;
+    while(true)
+    {
+      int k,j;
+      System.out.print("Enter the Account Number to Withdrawl or Deposit to that Account or Enter 0 to Exit:");
+      k=sc.nextInt();
+      if(k==0)
+        break;
+      for(int i=0;i<n;i++)
+      {
+        if(I[i].Accountnumber==k)
+        {
+          j=i;
+          break;
+        }
+      }
+      int c;
+      System.out.print("Enter your choice:\n1.Deposit\n2.Withdrawl\n3.Exit\nEnter:");
+      c=sc.nextInt();
+      switch(c)
+      {
+        case 1:
+              I[j].Deposit();
+              break;
+        case 2:
+              I[j].Withdrawl();
+              break;
+        case 3:
+              i=0;
+              break;
+        default:
+              System.out.println("Wrong Input");
+              break;
+      }
+      if(i==0)
+          break;
+    }
+    for(int i=0;i<n;i++)
+    {
+        System.out.println("The Details of Customer:");
+        I[i].Display();
+    }
+  }
+}
