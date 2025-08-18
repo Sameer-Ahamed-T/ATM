@@ -1,14 +1,12 @@
 import java.util.Scanner;
 class Informations
 {
-  private:
-    String Name;
-    int password;
-    int balance;
-  public:
-    int Accountnumber;
-    int deposit;
-    int witdrawl;
+    private String Name;
+    private int password;
+    private int balance;
+    public int Accountnumber;
+    public int deposit;
+    public int withdrawl;
     Informations(String Name,int Accountnumber,int password,int balance)
     {
       this.Name=Name;
@@ -18,15 +16,13 @@ class Informations
     }
     void Deposit()
     {
-      int deposit;
       Scanner ew=new Scanner(System.in);
-      System.out.println('Enter the amount to deposit:");
+      System.out.println("Enter the amount to deposit:");
       deposit=ew.nextInt();
-      balance+=depoist;
+      balance +=deposit;
     }
     void Withdrawl()
     {  
-      int withdrawl;
       Scanner re=new Scanner(System.in);
       System.out.print("Enter the amount to withdrawl:");
       withdrawl=re.nextInt();
@@ -49,12 +45,9 @@ class ATM
   public static void main(String[] args)
   {
     Scanner sc=new Scanner(System.in);
-    String Name;
-    int Acc_no;
-    int password;
-    int balance;
-    int n;
+    String Name;int Acc_no;int password;int balance;int n;
     System.out.print("Enter the number of the Objects:");
+    n=sc.nextInt();
     Informations[] I=new Informations[n];
     for(int i=0;i<n;i++)
     {
@@ -66,13 +59,14 @@ class ATM
       password=sc.nextInt();
       System.out.println("Enter the Balance:");
       balance=sc.nextInt();
-      Informations[i] I=new Informations(Name,Acc_no,password,balance);
+      I[i]=new Informations(Name,Acc_no,password,balance);
     }
-    int i=1;
+    int ch=1;
     while(true)
     {
-      int k,j;
-      System.out.print("Enter the Account Number to Withdrawl or Deposit to that Account or Enter 0 to Exit:");
+      int k;
+      int j=-1;
+      System.out.print("Enter the Account Number(0 to Exit):");
       k=sc.nextInt();
       if(k==0)
         break;
@@ -80,9 +74,13 @@ class ATM
       {
         if(I[i].Accountnumber==k)
         {
-          j=i;
-          break;
+          j=i;break;
         }
+      }
+      if(j==-1)
+      {  
+        System.out.println("Not Found");
+        continue;
       }
       int c;
       System.out.print("Enter your choice:\n1.Deposit\n2.Withdrawl\n3.Exit\nEnter:");
@@ -90,19 +88,15 @@ class ATM
       switch(c)
       {
         case 1:
-              I[j].Deposit();
-              break;
+              I[j].Deposit();break;
         case 2:
-              I[j].Withdrawl();
-              break;
+              I[j].Withdrawl();break;
         case 3:
-              i=0;
-              break;
+              ch=0;break;
         default:
-              System.out.println("Wrong Input");
-              break;
+              System.out.println("Wrong Input");break;
       }
-      if(i==0)
+      if(ch==0)
           break;
     }
     for(int i=0;i<n;i++)
