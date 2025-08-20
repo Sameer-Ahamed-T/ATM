@@ -15,14 +15,15 @@ class Informations
       this.password=password;
       this.balance=balance;
     }
-    void Deposit()
+    int Deposit()
     {
       Scanner ew=new Scanner(System.in);
       System.out.println("Enter the amount to deposit:");
       deposit=ew.nextInt();
       balance +=deposit;
+      return balance;
     }
-    void Withdrawl()
+    int Withdrawl()
     {  
       Scanner re=new Scanner(System.in);
       System.out.print("Enter the amount to withdrawl:");
@@ -33,6 +34,7 @@ class Informations
           return;
       }
       balance-=withdrawl;
+      return balance;
     }
     void Display()
     {
@@ -88,9 +90,15 @@ class ATM
     switch(c)
     {
         case 1:
-              I[j].Deposit();break;
+              int y=I[j].Deposit();
+              FileWriter fin=new FileWriter(f);
+              fin.write(y);
+              break;
         case 2:
-              I[j].Withdrawl();break;
+              I[j].Withdrawl();
+              FileWriter fout=new FileWriter();
+              fout.write(y);
+              break;
         case 3:
               return 0;
         default:
