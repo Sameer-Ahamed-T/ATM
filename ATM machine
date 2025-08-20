@@ -55,6 +55,7 @@ class ATM
     Informations[] I=new Informations[100];
     if(f==null)
     {
+        System.out.println("Enter the Details:");
         System.out.print("Enter the Name:");
         Name=sc.nextLine();
         System.out.print("Enter the Account Number:");
