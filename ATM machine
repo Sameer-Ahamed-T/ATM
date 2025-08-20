@@ -1,3 +1,4 @@
+import java.util.*;
 import java.util.Scanner;
 class Informations
 {
@@ -45,22 +46,21 @@ class ATM
   public static void main(String[] args)
   {
     Scanner sc=new Scanner(System.in);
-    String Name;int Acc_no;int password;int balance;int n;
-    System.out.print("Enter the number of the Objects:");
-    n=sc.nextInt();
-    Informations[] I=new Informations[n];
-    for(int i=0;i<n;i++)
-    {
-      System.out.print("Enter the Name:");
-      Name=sc.nextLine();
-      System.out.print("Enter the Account Number:");
-      Acc_no=sc.nextInt();
-      System.out.print("Enter the Password:");
-      password=sc.nextInt();
-      System.out.println("Enter the Balance:");
-      balance=sc.nextInt();
-      I[i]=new Informations(Name,Acc_no,password,balance);
-    }
+    String Name;int Acc_no;int password;int balance;
+    String file;
+    System.out.print('Enter the File Name:");
+    n=sc.next();
+    String f;
+    Informations[] I=new Informations[];
+        System.out.print("Enter the Name:");
+        Name=sc.nextLine();
+        System.out.print("Enter the Account Number:");
+        Acc_no=sc.nextInt();
+        System.out.print("Enter the Password:");
+        password=sc.nextInt();
+        System.out.println("Enter the Balance:");
+        balance=sc.nextInt();
+        I[i]=new Informations(Name,Acc_no,password,balance);
     int ch=1;
     while(true)
     {
