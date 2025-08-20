@@ -47,11 +47,14 @@ class ATM
   {
     Scanner sc=new Scanner(System.in);
     String Name;int Acc_no;int password;int balance;
-    String file;
+    String n;
     System.out.print('Enter the File Name:");
     n=sc.next();
-    String f;
-    Informations[] I=new Informations[];
+    int h=0;
+    String f=n+".txt";
+    Informations[] I=new Informations[100];
+    if(f==null)
+    {
         System.out.print("Enter the Name:");
         Name=sc.nextLine();
         System.out.print("Enter the Account Number:");
@@ -60,7 +63,9 @@ class ATM
         password=sc.nextInt();
         System.out.println("Enter the Balance:");
         balance=sc.nextInt();
-        I[i]=new Informations(Name,Acc_no,password,balance);
+        I[h]=new Informations(Name,Acc_no,password,balance);
+        h+=1;
+    }
     int ch=1;
     while(true)
     {
