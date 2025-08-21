@@ -43,7 +43,7 @@ class Informations
       System.out.println("The Balance:"+balance);
     }
 }
-class ATM
+class ATM_machine
 {
   public static void main(String[] args)
   {
