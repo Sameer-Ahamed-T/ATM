@@ -36,12 +36,6 @@ class Informations
       balance-=withdrawl;
       return balance;
     }
-    void Display()
-    {
-      System.out.println("Name:"+Name);
-      System.out.println("The Account Number:"+Accountnumber);
-      System.out.println("The Balance:"+balance);
-    }
 }
 class ATM_machine
 {
@@ -85,7 +79,7 @@ class ATM_machine
         return;
     }
     int c;
-    System.out.print("Enter your choice:\n1.Deposit\n2.Withdrawl\n3.Exit\nEnter:");
+    System.out.print("Enter your choice:\n1.Deposit\n2.Withdrawl\n3.Mini Statement\n4.Exit\nEnter:");
     c=sc.nextInt();
     switch(c)
     {
@@ -96,18 +90,20 @@ class ATM_machine
               break;
         case 2:
               I[j].Withdrawl();
-              FileWriter fout=new FileWriter();
+              FileWriter fout=new FileWriter(f);
               fout.write(y);
               break;
         case 3:
+              FileWriter fout=new FileReader(f);
+              while(fout==null)
+                  {
+                      int g=fout.read();
+                      System.out.println(g);
+                  }
+              break;
+        case 4:
               return 0;
         default:
               System.out.println("Wrong Input");break;
-    }
-    }
-    for(int i=0;i<n;i++)
-    {
-        System.out.println("The Details of Customer:");
-        I[i].Display();
     }
 }
