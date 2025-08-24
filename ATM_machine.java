@@ -95,9 +95,9 @@ class ATM_machine
               break;
         case 3:
               FileWriter fout=new FileReader(f);
-              while(fout==null)
+              while((fout.ReaderLine())!=null)
                   {
-                      int g=fout.read();
+                      string g=fout.read();
                       System.out.println(g);
                   }
               break;
