@@ -15,7 +15,14 @@ class Informations
       this.password=password;
       this.balance=balance;
     }
-    int Deposit()
+    public int passwordcheck(int n)
+    {
+        if(password==n)
+            return 1;
+        else
+            return 0;
+    }
+    public int Deposit()
     {
       Scanner ew=new Scanner(System.in);
       System.out.println("Enter the amount to deposit:");
@@ -23,7 +30,7 @@ class Informations
       balance +=deposit;
       return balance;
     }
-    int Withdrawl()
+    public int Withdrawl()
     {  
       Scanner re=new Scanner(System.in);
       System.out.print("Enter the amount to withdrawl:");
@@ -78,32 +85,44 @@ class ATM_machine
         System.out.println("Not Found");
         return;
     }
-    int c;
-    System.out.print("Enter your choice:\n1.Deposit\n2.Withdrawl\n3.Mini Statement\n4.Exit\nEnter:");
-    c=sc.nextInt();
-    switch(c)
+    int p;
+    System.out.print("Enter the password:");
+    p=sc.nextInt();
+    int q=I[i].passwordcheck(p);
+    if(q==1)
     {
-        case 1:
-              int y=I[j].Deposit();
-              FileWriter fin=new FileWriter(f);
-              fin.write(y);
-              break;
-        case 2:
-              I[j].Withdrawl();
-              FileWriter fout=new FileWriter(f);
-              fout.write(y);
-              break;
-        case 3:
-              FileWriter fout=new FileReader(f);
-              while((fout.ReaderLine())!=null)
+        int c;
+        System.out.print("Enter your choice:\n1.Deposit\n2.Withdrawl\n3.Mini Statement\n4.Exit\nEnter:");
+        c=sc.nextInt();
+        switch(c)
+        {
+            case 1:
+                  int y=I[j].Deposit();
+                  FileWriter fin=new FileWriter(f);
+                  fin.write(y);
+                  break;
+            case 2:
+                  I[j].Withdrawl();
+                  FileWriter fout=new FileWriter(f);
+                  fout.write(y);
+                  break;
+            case 3:
+                  FileWriter fout=new FileReader(f);
+                  while((fout.ReaderLine())!=null)
                   {
                       string g=fout.read();
                       System.out.println(g);
                   }
-              break;
-        case 4:
-              return 0;
-        default:
-              System.out.println("Wrong Input");break;
+                  break;
+            case 4:
+                  return 0;
+            default:
+                  System.out.println("Wrong Input");break;
+        }
+    }
+    else
+    {
+        System.out.println("You Entered the wrong password");
+        return 0;
     }
 }
